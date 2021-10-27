@@ -1,6 +1,6 @@
 // Definition of game scenes.
 public class Scenes
 {
-    public static string LoadingScreen = "LoadingScreen";
-    public static string Sandbox = "Sandbox";
+    public const string LoadingScreen = "LoadingScreen";
+    public const string Sandbox = "Sandbox";
 }
