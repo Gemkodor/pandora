@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Buttons : MonoBehaviour {
+public class MenuController : MonoBehaviour {
     public void OnNewGame() {
         Debug.Log("Starting new game.");
     }
