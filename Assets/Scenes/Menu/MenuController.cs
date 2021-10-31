@@ -9,6 +9,7 @@ public class MenuController : MonoBehaviour {
 
     public void OnSandbox() {
         Debug.Log("Playing in the sandbox.");
+        GameManager.Instance.AsyncLoadScene(Scenes.Sandbox);
     }
 
     public void OnQuit() {
