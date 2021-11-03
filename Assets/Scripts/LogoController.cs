@@ -6,9 +6,9 @@ using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.LowLevel;
 
 
-public class ArfoxLogoController : MonoBehaviour {
+public class LogoController : MonoBehaviour {
     [SerializeField][Tooltip("Duration of the scene, in seconds")] float _duration;
-    const string _nextScene = Scenes.Menu;
+    [SerializeField][Tooltip("Name of the next scene")] string _nextScene;
 
     void Start() {
         // Start a timer that automatically moves to the next scene.

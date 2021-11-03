@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ArfoxLogo/ArfoxLogo.unity
     guid: fe15117226b0fbc49bdfcdc843eb601b
   - enabled: 1
+    path: Assets/Scenes/ArtCorpLogo/ArtCorpLogo.unity
+    guid: 6025c04092c2f5a438892cdfd0bdda20
+  - enabled: 1
     path: Assets/Scenes/Menu/Menu.unity
     guid: a8d485aded8ade24fb4ad0f154fce435
   - enabled: 1

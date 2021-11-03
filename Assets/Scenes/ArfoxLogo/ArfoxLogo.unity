@@ -530,6 +530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 22
+  _nextScene: ArtCorpLogo
 --- !u!1 &1173282915
 GameObject:
   m_ObjectHideFlags: 0
