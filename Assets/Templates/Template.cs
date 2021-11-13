@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
 
+namespace Pandora {
+
 public class Template : MonoBehaviour {
     [SerializeField] InputAction _mouseClick;
 
@@ -27,4 +29,6 @@ public class Template : MonoBehaviour {
             Debug.Log("Test");
         }
     }
+}
+
 }

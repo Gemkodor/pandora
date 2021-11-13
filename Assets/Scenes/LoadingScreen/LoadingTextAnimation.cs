@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+namespace Pandora {
+
 public class LoadingTextAnimation : MonoBehaviour {
     [SerializeField] string _message = "Loading";
     [SerializeField] float _delay = 0.5f;
@@ -27,4 +29,6 @@ public class LoadingTextAnimation : MonoBehaviour {
             yield return new WaitForSeconds(_delay);
         }
     }
+}
+
 }

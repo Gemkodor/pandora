@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.LowLevel;
 
+namespace Pandora {
 
 public class LogoController : MonoBehaviour {
     [SerializeField][Tooltip("Duration of the scene, in seconds")] float _duration;
@@ -45,4 +46,6 @@ public class LogoController : MonoBehaviour {
         yield return new WaitForSeconds(_duration);
         GameManager.Instance.ImmediateLoadScene(_nextScene);
     }
+}
+
 }

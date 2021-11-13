@@ -1,3 +1,5 @@
+namespace Pandora {
+
 // Definition of game scenes.
 public class Scenes {
     public const string LoadingScreen = "LoadingScreen";
@@ -5,4 +7,6 @@ public class Scenes {
     public const string ArtCorpLogo = "ArtCorpLogo";
     public const string Menu = "Menu";
     public const string Sandbox = "Sandbox";
+}
+
 }

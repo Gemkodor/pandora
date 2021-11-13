@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 
+namespace Pandora {
+
 public class GameManager : MonoBehaviour {
     private static GameManager _instance;
 
@@ -64,4 +66,6 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(Scenes.LoadingScreen);
         StartCoroutine(AsyncLoadSceneCoroutine(sceneName));
     }
+}
+
 }

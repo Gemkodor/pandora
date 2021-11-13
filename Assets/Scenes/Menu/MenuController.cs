@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Pandora {
+
 public class MenuController : MonoBehaviour {
     public void OnNewGame() {
         Debug.Log("Starting new game.");
@@ -16,4 +18,6 @@ public class MenuController : MonoBehaviour {
         Debug.Log("Quitting...");
         Application.Quit();
     }
+}
+
 }
