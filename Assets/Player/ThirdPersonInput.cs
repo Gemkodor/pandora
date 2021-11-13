@@ -114,7 +114,7 @@ public class ThirdPersonInput : MonoBehaviour {
     }
 
     protected virtual void StrafeInput() {
-        if (_strafeInput.ReadValue<float>() > 0.5f)
+        if (_strafeInput.triggered)
             cc.Strafe();
     }
 
