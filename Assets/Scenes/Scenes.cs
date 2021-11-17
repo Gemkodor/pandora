@@ -7,6 +7,7 @@ public class Scenes {
     public const string ArtCorpLogo = "ArtCorpLogo";
     public const string Menu = "Menu";
     public const string Sandbox = "Sandbox";
+    public const string Village = "Village";
 }
 
 }
