@@ -15,14 +15,17 @@ public class ThirdPersonInput : MonoBehaviour {
 
     [Header("Camera Input")]
     [SerializeField] InputAction _cameraInput;
+    [SerializeField] InputAction _escapeInput;
 
     [HideInInspector] public Invector.vCharacterController.vThirdPersonController cc;
     [HideInInspector] public ThirdPersonCamera tpCamera;
     [HideInInspector] public Camera cameraMain;
+    [HideInInspector] private bool _hasFocus = true;
 
     protected virtual void Start() {
         InitilizeController();
         InitializeTpCamera();
+        InitializeCursor();
     }
 
     private void OnEnable()
@@ -32,6 +35,7 @@ public class ThirdPersonInput : MonoBehaviour {
         _strafeInput.Enable();
         _sprintInput.Enable();
         _cameraInput.Enable();
+        _escapeInput.Enable();
     }
 
     private void OnDisable()
@@ -41,6 +45,7 @@ public class ThirdPersonInput : MonoBehaviour {
         _strafeInput.Disable();
         _sprintInput.Disable();
         _cameraInput.Disable();
+        _escapeInput.Disable();
     }
 
     protected virtual void FixedUpdate() {
@@ -79,12 +84,23 @@ public class ThirdPersonInput : MonoBehaviour {
         }
     }
 
+    protected virtual void InitializeCursor() {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        _hasFocus = true;
+    }
+
     protected virtual void InputHandle() {
+        if (!_hasFocus) {
+            return;
+        }
+
         MoveInput();
         CameraInput();
         SprintInput();
         StrafeInput();
         JumpInput();
+        EscapeInput();
     }
 
     public virtual void MoveInput() {
@@ -139,6 +155,14 @@ public class ThirdPersonInput : MonoBehaviour {
     protected virtual void JumpInput() {
         if (_jumpInput.ReadValue<float>() > 0.5f && JumpConditions())
             cc.Jump();
+    }
+
+    protected virtual void EscapeInput() {
+        if (_escapeInput.triggered) {
+            _hasFocus = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     #endregion
