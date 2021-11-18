@@ -7,6 +7,7 @@ namespace Pandora {
 public class MenuController : MonoBehaviour {
     public void OnNewGame() {
         Debug.Log("Starting new game.");
+        GameManager.Instance.AsyncLoadScene(Scenes.Village);
     }
 
     public void OnSandbox() {
