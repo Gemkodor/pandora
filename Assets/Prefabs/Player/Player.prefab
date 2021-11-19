@@ -1317,6 +1317,7 @@ GameObject:
   - component: {fileID: 5766784023942502592}
   - component: {fileID: 6079593100198570843}
   - component: {fileID: 6079593100198570842}
+  - component: {fileID: 596310616}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1581,6 +1582,46 @@ CapsuleCollider:
   m_Height: 1.9
   m_Direction: 1
   m_Center: {x: 0, y: 0.95, z: 0}
+--- !u!114 &596310616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079593100198570841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f420884cac22c44aaebe20d8579ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _accomplishQuest:
+    m_Name: Accomplish Quest
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ef6754af-2594-4bfe-8661-1e3f93f1d06d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 8a73354a-5543-44fa-86ef-2ba15986766e
+      m_Path: <Keyboard>/o
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Accomplish Quest
+      m_Flags: 0
+  questGiver: {fileID: 0}
+  quest:
+    isActive: 0
+    title: 
+    description: 
+    goldReward: 0
+    goal:
+      goalType: 0
+      requiredAmount: 0
+      currentAmount: 0
+  gold: 0
+  canMove: 1
 --- !u!1 &6079593100209158904
 GameObject:
   m_ObjectHideFlags: 0

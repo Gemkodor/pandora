@@ -22,10 +22,15 @@ public class ThirdPersonInput : MonoBehaviour {
     [HideInInspector] public Camera cameraMain;
     [HideInInspector] private bool _hasFocus = true;
 
+    Player playerController;
+
     protected virtual void Start() {
         InitilizeController();
         InitializeTpCamera();
         InitializeCursor();
+
+        playerController = GetComponent<Player>();
+        Assert.IsNotNull(playerController);
     }
 
     private void OnEnable()
@@ -91,7 +96,7 @@ public class ThirdPersonInput : MonoBehaviour {
     }
 
     protected virtual void InputHandle() {
-        if (!_hasFocus) {
+        if (!_hasFocus || !playerController.canMove) {
             return;
         }
 
