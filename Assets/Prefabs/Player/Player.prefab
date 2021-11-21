@@ -1594,21 +1594,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f420884cac22c44aaebe20d8579ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _accomplishQuest:
-    m_Name: Accomplish Quest
+  _accomplishQuestInput:
+    m_Name: Accomplish Quest Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: ef6754af-2594-4bfe-8661-1e3f93f1d06d
+    m_Id: 9a2d2cd5-873a-4964-9c81-f5e3a7775f64
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 8a73354a-5543-44fa-86ef-2ba15986766e
+      m_Id: d70ce02b-f549-49f8-986f-f5f340d39c5f
       m_Path: <Keyboard>/o
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Accomplish Quest
+      m_Action: Accomplish Quest Input
       m_Flags: 0
   questGiver: {fileID: 0}
   quest:

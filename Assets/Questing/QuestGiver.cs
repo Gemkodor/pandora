@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Assertions;
 using TMPro;
 
 namespace Pandora {
 
-public class QuestGiver : MonoBehaviour
-{
+public class QuestGiver : MonoBehaviour {
     public Quest quest;
 
-    public Player player;
+    private PlayerQuest _playerQuest;
+    private ThirdPersonInput _thirdPersonInput;
 
     [Header("Quest window UI")]
     public GameObject questWindow;
@@ -23,6 +24,13 @@ public class QuestGiver : MonoBehaviour
 
     private bool questWindowOpened = false;
 
+    void Start() {
+        _playerQuest = FindObjectOfType<PlayerQuest>();
+        Assert.IsNotNull(_playerQuest);
+        _thirdPersonInput = FindObjectOfType<ThirdPersonInput>();
+        Assert.IsNotNull(_thirdPersonInput);
+    }
+
     void OnEnable() {
         _interact.Enable();
     }
@@ -30,22 +38,21 @@ public class QuestGiver : MonoBehaviour
     void OnDisable() {
         _interact.Disable();
     }
-    
+
     private void Update() {
-        if (!questWindowOpened && _interact.triggered && Vector3.Distance(transform.position, player.transform.position) < 3) {
+        if (!questWindowOpened &&
+                _interact.triggered &&
+                Vector3.Distance(transform.position, _playerQuest.transform.position) < 3) {
             OpenQuestWindow();
         }
     }
 
     public void OpenQuestWindow() {
         questWindow.SetActive(true);
-        player.canMove = false;
         questWindowOpened = true;
+        _thirdPersonInput.DisableInputs();
+        _thirdPersonInput.ShowCursor();
 
-        // Display cursor to let player click on buttons
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
-        
         titleText.text = quest.title;
         descriptionText.text = quest.description;
         goldText.text = "Récompense : " + quest.goldReward.ToString() + " $";
@@ -54,13 +61,14 @@ public class QuestGiver : MonoBehaviour
     public void AcceptQuest() {
         CloseInterface();
         quest.isActive = true;
-        player.quest = quest;   
+        _playerQuest.quest = quest;
     }
 
     public void CloseInterface() {
         questWindow.SetActive(false);
         questWindowOpened = false;
-        player.canMove = true;
+        _thirdPersonInput.EnableInputs();
+        _thirdPersonInput.HideCursor();
     }
 }
 

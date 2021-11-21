@@ -20,21 +20,40 @@ public class ThirdPersonInput : MonoBehaviour {
     [HideInInspector] public Invector.vCharacterController.vThirdPersonController cc;
     [HideInInspector] public ThirdPersonCamera tpCamera;
     [HideInInspector] public Camera cameraMain;
-    [HideInInspector] private bool _hasFocus = true;
+    [HideInInspector] private bool _enabled = true;
 
-    Player playerController;
+    #region Public methods
+
+    public void DisableInputs() {
+        _enabled = false;
+        cc.input.x = 0f;
+        cc.input.z = 0f;
+    }
+
+    public void EnableInputs() {
+        _enabled = true;
+    }
+
+    public void HideCursor() {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void ShowCursor() {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    #endregion
+    #region Internal
 
     protected virtual void Start() {
         InitilizeController();
         InitializeTpCamera();
-        InitializeCursor();
-
-        playerController = GetComponent<Player>();
-        Assert.IsNotNull(playerController);
+        HideCursor();
     }
 
-    private void OnEnable()
-    {
+    private void OnEnable() {
         _movementInput.Enable();
         _jumpInput.Enable();
         _strafeInput.Enable();
@@ -43,8 +62,7 @@ public class ThirdPersonInput : MonoBehaviour {
         _escapeInput.Enable();
     }
 
-    private void OnDisable()
-    {
+    private void OnDisable() {
         _movementInput.Disable();
         _jumpInput.Disable();
         _strafeInput.Disable();
@@ -68,6 +86,7 @@ public class ThirdPersonInput : MonoBehaviour {
         cc.ControlAnimatorRootMotion(); // handle root motion animations
     }
 
+    #endregion
     #region Basic Locomotion Inputs
 
     protected virtual void InitilizeController() {
@@ -89,14 +108,8 @@ public class ThirdPersonInput : MonoBehaviour {
         }
     }
 
-    protected virtual void InitializeCursor() {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        _hasFocus = true;
-    }
-
     protected virtual void InputHandle() {
-        if (!_hasFocus || !playerController.canMove) {
+        if (!_enabled) {
             return;
         }
 
@@ -142,7 +155,7 @@ public class ThirdPersonInput : MonoBehaviour {
     protected virtual void SprintInput() {
         if (_sprintInput.ReadValue<float>() > 0.5f)
             cc.Sprint(true);
-        else 
+        else
             cc.Sprint(false);
     }
 
@@ -164,9 +177,8 @@ public class ThirdPersonInput : MonoBehaviour {
 
     protected virtual void EscapeInput() {
         if (_escapeInput.triggered) {
-            _hasFocus = false;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            DisableInputs();
+            ShowCursor();
         }
     }
 
