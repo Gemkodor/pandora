@@ -91,28 +91,25 @@ public class ThirdPersonInput : MonoBehaviour {
 
     protected virtual void InitilizeController() {
         cc = GetComponent<Invector.vCharacterController.vThirdPersonController>();
-
-        if (cc != null)
-            cc.Init();
+        Assert.IsNotNull(cc);
+        cc.Init();
     }
 
     protected virtual void InitializeTpCamera() {
-        if (tpCamera == null) {
-            tpCamera = FindObjectOfType<Pandora.ThirdPersonCamera>();
-            if (tpCamera == null)
-                return;
-            if (tpCamera) {
-                tpCamera.SetMainTarget(this.transform);
-                tpCamera.Init();
-            }
-        }
-    }
-
-    protected virtual void InputHandle() {
-        if (!_enabled) {
+        if (tpCamera != null) {
             return;
         }
 
+        tpCamera = FindObjectOfType<Pandora.ThirdPersonCamera>();
+        if (tpCamera == null) {
+            return;
+        }
+
+        tpCamera.SetMainTarget(this.transform);
+        tpCamera.Init();
+    }
+
+    protected virtual void InputHandle() {
         MoveInput();
         CameraInput();
         SprintInput();
@@ -122,6 +119,10 @@ public class ThirdPersonInput : MonoBehaviour {
     }
 
     public virtual void MoveInput() {
+        if (!_enabled) {
+            return;
+        }
+
         Vector2 input = _movementInput.ReadValue<Vector2>();
         cc.input.x = input.x;
         cc.input.z = input.y;
@@ -129,34 +130,48 @@ public class ThirdPersonInput : MonoBehaviour {
 
     protected virtual void CameraInput() {
         if (!cameraMain) {
-            if (!Camera.main) Debug.Log("Missing a Camera with the tag MainCamera, please add one.");
-            else {
-                cameraMain = Camera.main;
-                cc.rotateTarget = cameraMain.transform;
-            }
+            Assert.IsNotNull(Camera.main);
+            cameraMain = Camera.main;
+            cc.rotateTarget = cameraMain.transform;
         }
 
         if (cameraMain) {
             cc.UpdateMoveDirection(cameraMain.transform);
         }
 
-        if (tpCamera == null)
+        if (tpCamera == null) {
             return;
+        }
+
+        if (!_enabled) {
+            return;
+        }
 
         Vector2 input = _cameraInput.ReadValue<Vector2>();
         tpCamera.RotateCamera(input.x, input.y);
     }
 
     protected virtual void StrafeInput() {
-        if (_strafeInput.triggered)
+        if (!_enabled) {
+            return;
+        }
+
+        if (_strafeInput.triggered) {
             cc.Strafe();
+        }
     }
 
     protected virtual void SprintInput() {
-        if (_sprintInput.ReadValue<float>() > 0.5f)
-            cc.Sprint(true);
-        else
+        if (!_enabled) {
             cc.Sprint(false);
+            return;
+        }
+
+        if (_sprintInput.ReadValue<float>() > 0.5f) {
+            cc.Sprint(true);
+        } else {
+            cc.Sprint(false);
+        }
     }
 
     /// <summary>
@@ -171,8 +186,13 @@ public class ThirdPersonInput : MonoBehaviour {
     /// Input to trigger the Jump
     /// </summary>
     protected virtual void JumpInput() {
-        if (_jumpInput.ReadValue<float>() > 0.5f && JumpConditions())
+        if (!_enabled) {
+            return;
+        }
+
+        if (_jumpInput.ReadValue<float>() > 0.5f && JumpConditions()) {
             cc.Jump();
+        }
     }
 
     protected virtual void EscapeInput() {
