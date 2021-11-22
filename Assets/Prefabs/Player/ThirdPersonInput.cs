@@ -197,8 +197,13 @@ public class ThirdPersonInput : MonoBehaviour {
 
     protected virtual void EscapeInput() {
         if (_escapeInput.triggered) {
-            DisableInputs();
-            ShowCursor();
+            if (_enabled) {
+                DisableInputs();
+                ShowCursor();
+            } else {
+                EnableInputs();
+                HideCursor();
+            }
         }
     }
 
