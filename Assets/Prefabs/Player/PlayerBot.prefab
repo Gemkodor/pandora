@@ -1319,7 +1319,7 @@ GameObject:
   - component: {fileID: 6079593100198570842}
   - component: {fileID: 596310616}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerBot
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
