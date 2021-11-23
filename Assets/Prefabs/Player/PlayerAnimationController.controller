@@ -15205,7 +15205,7 @@ BlendTree:
   m_Name: Unarmed
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 37c6cfe59f56e8a4799011397a870a8b, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: 4a2183f0f3f46464495737a5167eb785, type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
