@@ -1671,6 +1671,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2174558669312694808, guid: 4d5d9902d0bc6834cb8aa506811df782, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.13120916
+      objectReference: {fileID: 0}
+    - target: {fileID: 2174558669312694808, guid: 4d5d9902d0bc6834cb8aa506811df782, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2204,6 +2208,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8414495486414570754, guid: 528dfaa75a7884e4f9c41bac99e67350, type: 3}
   m_PrefabInstance: {fileID: 1026031293}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &877948833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 622790244810656219, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
+  m_PrefabInstance: {fileID: 1643423667563772670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &877948835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877948833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35056296afd4f624ca327fad698de614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest:
+    isActive: 0
+    title: "Chasse \xE0 l'arc"
+    description: "Les villageois ont faim. Il faut que quelqu'un se d\xE9voue pour
+      aller r\xE9cup\xE9rer de la nourriture. Aventurez vous dans la for\xEAt \xE0
+      la sortie du village et chassez 3 lapin"
+    goldReward: 100
+    goal:
+      goalType: 0
+      requiredAmount: 3
+      currentAmount: 0
+  questWindow: {fileID: 1685972793}
+  titleText: {fileID: 811016730}
+  descriptionText: {fileID: 920188243}
+  goldText: {fileID: 1035728584}
+  _interact:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 284bc75a-06b9-4720-8410-d3dd09b5c541
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 9db2956c-cfeb-4e83-8e96-8b2d07df077b
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
 --- !u!1 &885309990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,7 +2328,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &897323186
 PrefabInstance:
@@ -2951,7 +3003,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2147316746}
+      - m_Target: {fileID: 877948835}
         m_TargetAssemblyTypeName: Pandora.QuestGiver, Assembly-CSharp
         m_MethodName: AcceptQuest
         m_Mode: 1
@@ -4646,7 +4698,7 @@ RectTransform:
   m_Children:
   - {fileID: 1685972794}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5618,7 +5670,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2147316746}
+      - m_Target: {fileID: 877948835}
         m_TargetAssemblyTypeName: Pandora.QuestGiver, Assembly-CSharp
         m_MethodName: CloseInterface
         m_Mode: 1
@@ -6215,144 +6267,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 528dfaa75a7884e4f9c41bac99e67350, type: 3}
---- !u!1 &2147316745
-GameObject:
+--- !u!1001 &1643423667563772670
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2147316750}
-  - component: {fileID: 2147316749}
-  - component: {fileID: 2147316748}
-  - component: {fileID: 2147316747}
-  - component: {fileID: 2147316746}
-  m_Layer: 0
-  m_Name: QuestGiver
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2147316746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2147316745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35056296afd4f624ca327fad698de614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quest:
-    isActive: 0
-    title: "Chasse \xE0 l'arc"
-    description: "Aventurez vous dans la for\xEAt \xE0 la sortie du village et chassez
-      un lapin"
-    goldReward: 100
-    goal:
-      goalType: 0
-      requiredAmount: 3
-      currentAmount: 0
-  questWindow: {fileID: 1685972793}
-  titleText: {fileID: 811016730}
-  descriptionText: {fileID: 920188243}
-  goldText: {fileID: 1035728584}
-  _interact:
-    m_Name: Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 8703229d-8f49-4e4c-ab8b-e789af22695a
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: a7a10fce-8124-4ee5-8735-584af1b0b195
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
---- !u!65 &2147316747
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2147316745}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &2147316748
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2147316745}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &2147316749
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2147316745}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &2147316750
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2147316745}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.1, y: 2.28, z: 61.581}
-  m_LocalScale: {x: -0.4389675, y: 2.6245694, z: 0.4990177}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 622790244810656219, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
+      propertyPath: m_Name
+      value: Billboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 622790244810656219, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892225746298600173, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892225746298600173, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892225746298600173, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892225746298600173, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 45.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892225746298600173, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98977137
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892225746298600173, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892225746298600173, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.14266288
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892225746298600173, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892225746298600173, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892225746298600173, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -16.404
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892225746298600173, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f1ef3faa985a93b4b98f83906bf4ffde, type: 3}
 --- !u!1001 &7989922773262913810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6420,7 +6395,7 @@ PrefabInstance:
     - target: {fileID: 919132148604621106, guid: 4438260c984c41e43889f1a207024d5f, type: 3}
       propertyPath: questGiver
       value: 
-      objectReference: {fileID: 2147316746}
+      objectReference: {fileID: 877948835}
     - target: {fileID: 8106984388163072844, guid: 4438260c984c41e43889f1a207024d5f, type: 3}
       propertyPath: m_Name
       value: Player
