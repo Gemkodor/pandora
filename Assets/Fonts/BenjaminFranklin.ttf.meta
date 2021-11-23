@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d51b88cea05a92f4b857448434dade94
+guid: 2447935282d77da459c672c9b7b825fd
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Antique Book Cover
+  - Benjamin Franklin
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
