@@ -19,6 +19,7 @@ public class QuestGiver : MonoBehaviour {
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI goldText;
     public GameObject interactionTipLabel;
+    public GameObject activeQuestPanel;
     
 
     [Header("Input actions")]
@@ -32,6 +33,7 @@ public class QuestGiver : MonoBehaviour {
         _thirdPersonInput = FindObjectOfType<ThirdPersonInput>();
         Assert.IsNotNull(_thirdPersonInput);
         Assert.IsNotNull(interactionTipLabel);
+        Assert.IsNotNull(activeQuestPanel);
     }
 
     void OnEnable() {
@@ -65,6 +67,7 @@ public class QuestGiver : MonoBehaviour {
     public void AcceptQuest() {
         CloseInterface();
         quest.isActive = true;
+        activeQuestPanel.SetActive(true);
         _playerQuest.quest = quest;
     }
 
