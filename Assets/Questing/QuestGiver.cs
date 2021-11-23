@@ -18,6 +18,8 @@ public class QuestGiver : MonoBehaviour {
     public TextMeshProUGUI titleText;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI goldText;
+    public GameObject interactionTipLabel;
+    
 
     [Header("Input actions")]
     [SerializeField] InputAction _interact;
@@ -29,6 +31,7 @@ public class QuestGiver : MonoBehaviour {
         Assert.IsNotNull(_playerQuest);
         _thirdPersonInput = FindObjectOfType<ThirdPersonInput>();
         Assert.IsNotNull(_thirdPersonInput);
+        Assert.IsNotNull(interactionTipLabel);
     }
 
     void OnEnable() {
@@ -48,6 +51,7 @@ public class QuestGiver : MonoBehaviour {
     }
 
     public void OpenQuestWindow() {
+        interactionTipLabel.SetActive(false);
         questWindow.SetActive(true);
         questWindowOpened = true;
         _thirdPersonInput.DisableInputs();
@@ -69,6 +73,18 @@ public class QuestGiver : MonoBehaviour {
         questWindowOpened = false;
         _thirdPersonInput.EnableInputs();
         _thirdPersonInput.HideCursor();
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag == "Player") {
+            interactionTipLabel.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.tag == "Player") {
+            interactionTipLabel.SetActive(false);
+        }
     }
 }
 

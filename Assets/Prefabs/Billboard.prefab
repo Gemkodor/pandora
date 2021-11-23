@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3892225746298600173}
   - component: {fileID: 5461270576443525054}
+  - component: {fileID: 8093477323895113088}
+  - component: {fileID: 877948835}
   m_Layer: 0
   m_Name: Billboard
   m_TagString: Untagged
@@ -42,11 +44,66 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622790244810656219}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12628853, y: 1.7270604, z: 2.025992}
-  m_Center: {x: 0.004101254, y: 0.14332408, z: 0.0010831952}
+  m_Size: {x: 1.5433661, y: 1.7270604, z: 2.025992}
+  m_Center: {x: 0.71264607, y: 0.14332408, z: 0.0010836286}
+--- !u!114 &8093477323895113088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622790244810656219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d758d16a788e54db49ba544ac15c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &877948835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622790244810656219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35056296afd4f624ca327fad698de614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest:
+    isActive: 0
+    title: "Chasse \xE0 l'arc"
+    description: "Les villageois ont faim. Il faut que quelqu'un se d\xE9voue pour
+      aller r\xE9cup\xE9rer de la nourriture. Aventurez vous dans la for\xEAt \xE0
+      la sortie du village et chassez 3 lapin"
+    goldReward: 100
+    goal:
+      goalType: 0
+      requiredAmount: 3
+      currentAmount: 0
+  questWindow: {fileID: 0}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  goldText: {fileID: 0}
+  _interact:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 284bc75a-06b9-4720-8410-d3dd09b5c541
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 9db2956c-cfeb-4e83-8e96-8b2d07df077b
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
 --- !u!1 &3594837787012964899
 GameObject:
   m_ObjectHideFlags: 0
