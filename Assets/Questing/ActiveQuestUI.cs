@@ -23,9 +23,10 @@ public class ActiveQuestUI : MonoBehaviour
     }
 
     private void Update() {
-        if (playerQuest.quest.isActive) {
-            questTitle.text = playerQuest.quest.title;
-            amount.text = playerQuest.quest.goal.currentAmount + " / " + playerQuest.quest.goal.requiredAmount;
+        Quest quest = playerQuest.GetQuest();
+        if (quest.isActive) {
+            questTitle.text = quest.title;
+            amount.text = quest.goal.currentAmount + " / " + quest.goal.requiredAmount;
         } else {
             gameObject.SetActive(false);
         }

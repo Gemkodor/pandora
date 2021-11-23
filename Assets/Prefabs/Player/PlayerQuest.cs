@@ -9,10 +9,10 @@ namespace Pandora {
 public class PlayerQuest : MonoBehaviour {
     [SerializeField] InputAction _accomplishQuestInput;
 
-    public QuestGiver questGiver;
-    public Quest quest;
-    public int gold;
-    public bool canMove = true;
+    [SerializeField] QuestGiver questGiver;
+    [SerializeField] Quest quest;
+    [SerializeField] int gold;
+    [SerializeField] bool canMove = true;
 
     void OnEnable() {
         _accomplishQuestInput.Enable();
@@ -24,6 +24,14 @@ public class PlayerQuest : MonoBehaviour {
 
     private void Update() {
         QuestInput();
+    }
+
+    public void SetQuest(Quest quest) {
+        this.quest = quest;
+    }
+
+    public Quest GetQuest() {
+        return this.quest;
     }
 
     private void QuestInput() {

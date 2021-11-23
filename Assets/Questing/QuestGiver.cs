@@ -14,14 +14,13 @@ public class QuestGiver : MonoBehaviour {
     private ThirdPersonInput _thirdPersonInput;
 
     [Header("Quest window UI")]
-    public GameObject questWindow;
-    public TextMeshProUGUI titleText;
-    public TextMeshProUGUI descriptionText;
-    public TextMeshProUGUI goldText;
-    public GameObject interactionTipLabel;
-    public GameObject activeQuestPanel;
+    [SerializeField] GameObject questWindow;
+    [SerializeField] TextMeshProUGUI titleText;
+    [SerializeField] TextMeshProUGUI descriptionText;
+    [SerializeField] TextMeshProUGUI goldText;
+    [SerializeField] GameObject interactionTipLabel;
+    [SerializeField] GameObject activeQuestPanel;
     
-
     [Header("Input actions")]
     [SerializeField] InputAction _interact;
 
@@ -68,7 +67,7 @@ public class QuestGiver : MonoBehaviour {
         CloseInterface();
         quest.isActive = true;
         activeQuestPanel.SetActive(true);
-        _playerQuest.quest = quest;
+        _playerQuest.SetQuest(quest);
     }
 
     public void CloseInterface() {
