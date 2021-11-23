@@ -7,6 +7,7 @@ namespace Pandora {
 [System.Serializable]
 public class Quest
 {
+    public bool hasBeenCompleted = false;
     public bool isActive;
     public string title;
     public string description;
@@ -16,6 +17,7 @@ public class Quest
 
     public void Complete() {
         isActive = false;
+        hasBeenCompleted = true;
     }
 }
 

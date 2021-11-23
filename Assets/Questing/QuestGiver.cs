@@ -8,22 +8,23 @@ using TMPro;
 namespace Pandora {
 
 public class QuestGiver : MonoBehaviour {
-    public Quest quest;
-
-    private PlayerQuest _playerQuest;
-    private ThirdPersonInput _thirdPersonInput;
-
     [Header("Quest window UI")]
     [SerializeField] GameObject questWindow;
+    [SerializeField] GameObject noQuestWindow;
     [SerializeField] TextMeshProUGUI titleText;
     [SerializeField] TextMeshProUGUI descriptionText;
     [SerializeField] TextMeshProUGUI goldText;
     [SerializeField] GameObject interactionTipLabel;
     [SerializeField] GameObject activeQuestPanel;
-    
+
     [Header("Input actions")]
     [SerializeField] InputAction _interact;
 
+    public List<Quest> quests;
+    public Quest activeQuest;
+
+    private PlayerQuest _playerQuest;
+    private ThirdPersonInput _thirdPersonInput;
     private bool questWindowOpened = false;
 
     void Start() {
@@ -52,25 +53,46 @@ public class QuestGiver : MonoBehaviour {
     }
 
     public void OpenQuestWindow() {
-        interactionTipLabel.SetActive(false);
-        questWindow.SetActive(true);
-        questWindowOpened = true;
         _thirdPersonInput.DisableInputs();
         _thirdPersonInput.ShowCursor();
+        interactionTipLabel.SetActive(false);
 
-        titleText.text = quest.title;
-        descriptionText.text = quest.description;
-        goldText.text = "Récompense : " + quest.goldReward.ToString() + " $";
+        Quest quest = GetNextQuestToDisplay();
+
+        if (quest != null) {
+            questWindow.SetActive(true);
+            questWindowOpened = true;
+
+            titleText.text = quest.title;
+            descriptionText.text = quest.description;
+            goldText.text = "Récompense : " + quest.goldReward.ToString() + " $";
+            activeQuest = quest;
+        } else {
+            noQuestWindow.SetActive(true);
+        }
+    }
+
+    private Quest GetNextQuestToDisplay() {
+        if (_playerQuest.GetQuest() == null || !_playerQuest.GetQuest().isActive) {
+            foreach (Quest quest in quests) {
+                if (!quest.hasBeenCompleted) {
+                    return quest;
+                }
+            }
+        }
+
+        return null;
     }
 
     public void AcceptQuest() {
         CloseInterface();
-        quest.isActive = true;
+        activeQuest.isActive = true;
         activeQuestPanel.SetActive(true);
-        _playerQuest.SetQuest(quest);
+        _playerQuest.SetQuest(activeQuest);
     }
 
     public void CloseInterface() {
+        noQuestWindow.SetActive(false);
         questWindow.SetActive(false);
         questWindowOpened = false;
         _thirdPersonInput.EnableInputs();
