@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace Pandora {
 
-public class ThirdPersonCamera : MonoBehaviour {
+public class PlayerCamera : MonoBehaviour {
     #region inspector properties
 
     public Transform target;

@@ -12,7 +12,6 @@ public class PlayerQuest : MonoBehaviour {
     [SerializeField] QuestGiver questGiver;
     [SerializeField] Quest quest;
     [SerializeField] int gold;
-    [SerializeField] bool canMove = true;
 
     void OnEnable() {
         _accomplishQuestInput.Enable();

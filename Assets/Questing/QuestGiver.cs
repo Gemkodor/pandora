@@ -24,14 +24,14 @@ public class QuestGiver : MonoBehaviour {
     public Quest activeQuest;
 
     private PlayerQuest _playerQuest;
-    private ThirdPersonInput _thirdPersonInput;
+    private PlayerMovementInput _playerMovementInput;
     private bool questWindowOpened = false;
 
     void Start() {
         _playerQuest = FindObjectOfType<PlayerQuest>();
         Assert.IsNotNull(_playerQuest);
-        _thirdPersonInput = FindObjectOfType<ThirdPersonInput>();
-        Assert.IsNotNull(_thirdPersonInput);
+        _playerMovementInput = FindObjectOfType<PlayerMovementInput>();
+        Assert.IsNotNull(_playerMovementInput);
         Assert.IsNotNull(interactionTipLabel);
         Assert.IsNotNull(activeQuestPanel);
     }
@@ -53,8 +53,8 @@ public class QuestGiver : MonoBehaviour {
     }
 
     public void OpenQuestWindow() {
-        _thirdPersonInput.DisableInputs();
-        _thirdPersonInput.ShowCursor();
+        _playerMovementInput.DisableInputs();
+        _playerMovementInput.ShowCursor();
         interactionTipLabel.SetActive(false);
 
         Quest quest = GetNextQuestToDisplay();
@@ -95,8 +95,8 @@ public class QuestGiver : MonoBehaviour {
         noQuestWindow.SetActive(false);
         questWindow.SetActive(false);
         questWindowOpened = false;
-        _thirdPersonInput.EnableInputs();
-        _thirdPersonInput.HideCursor();
+        _playerMovementInput.EnableInputs();
+        _playerMovementInput.HideCursor();
     }
 
     private void OnTriggerEnter(Collider other) {

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace Pandora {
 
-public class ThirdPersonInput : MonoBehaviour {
+public class PlayerMovementInput : MonoBehaviour {
     [Header("Controller Input")]
     [SerializeField] InputAction _movementInput;
     [SerializeField] InputAction _jumpInput;
@@ -18,7 +18,7 @@ public class ThirdPersonInput : MonoBehaviour {
     [SerializeField] InputAction _escapeInput;
 
     [HideInInspector] public Invector.vCharacterController.vThirdPersonController cc;
-    [HideInInspector] public ThirdPersonCamera tpCamera;
+    [HideInInspector] public PlayerCamera thirdPersonCamera;
     [HideInInspector] public Camera cameraMain;
     [HideInInspector] private bool _enabled = true;
 
@@ -96,17 +96,17 @@ public class ThirdPersonInput : MonoBehaviour {
     }
 
     protected virtual void InitializeTpCamera() {
-        if (tpCamera != null) {
+        if (thirdPersonCamera != null) {
             return;
         }
 
-        tpCamera = FindObjectOfType<Pandora.ThirdPersonCamera>();
-        if (tpCamera == null) {
+        thirdPersonCamera = FindObjectOfType<Pandora.PlayerCamera>();
+        if (thirdPersonCamera == null) {
             return;
         }
 
-        tpCamera.SetMainTarget(this.transform);
-        tpCamera.Init();
+        thirdPersonCamera.SetMainTarget(this.transform);
+        thirdPersonCamera.Init();
     }
 
     protected virtual void InputHandle() {
@@ -139,7 +139,7 @@ public class ThirdPersonInput : MonoBehaviour {
             cc.UpdateMoveDirection(cameraMain.transform);
         }
 
-        if (tpCamera == null) {
+        if (thirdPersonCamera == null) {
             return;
         }
 
@@ -148,7 +148,7 @@ public class ThirdPersonInput : MonoBehaviour {
         }
 
         Vector2 input = _cameraInput.ReadValue<Vector2>();
-        tpCamera.RotateCamera(input.x, input.y);
+        thirdPersonCamera.RotateCamera(input.x, input.y);
     }
 
     protected virtual void StrafeInput() {
