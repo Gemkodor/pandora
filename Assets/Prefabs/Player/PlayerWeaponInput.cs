@@ -11,6 +11,9 @@ public class PlayerWeaponInput : MonoBehaviour {
     [SerializeField] InputAction _aimInput;
     [SerializeField] InputAction _fireInput;
 
+    [Header("UI")]
+    [SerializeField] GameObject _reticle;
+
     private Animator _animator;
 
     public static class AnimatorParameters {
@@ -20,6 +23,7 @@ public class PlayerWeaponInput : MonoBehaviour {
     void Start() {
         _animator = GetComponent<Animator>();
         Assert.IsNotNull(_animator);
+        Assert.IsNotNull(_reticle);
     }
 
     private void OnEnable() {
@@ -40,6 +44,7 @@ public class PlayerWeaponInput : MonoBehaviour {
     void AimingInput() {
         bool aiming = _aimInput.ReadValue<float>() > 0.5f;
         _animator.SetBool(AnimatorParameters.IsAiming, aiming);
+        _reticle.SetActive(aiming);
     }
 
     void FireInput() {
