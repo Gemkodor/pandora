@@ -10,7 +10,6 @@ public class PlayerMovementInput : MonoBehaviour {
     [Header("Controller Input")]
     [SerializeField] InputAction _movementInput;
     [SerializeField] InputAction _jumpInput;
-    [SerializeField] InputAction _strafeInput;
     [SerializeField] InputAction _sprintInput;
 
     [Header("Camera Input")]
@@ -56,7 +55,6 @@ public class PlayerMovementInput : MonoBehaviour {
     private void OnEnable() {
         _movementInput.Enable();
         _jumpInput.Enable();
-        _strafeInput.Enable();
         _sprintInput.Enable();
         _cameraInput.Enable();
         _escapeInput.Enable();
@@ -65,7 +63,6 @@ public class PlayerMovementInput : MonoBehaviour {
     private void OnDisable() {
         _movementInput.Disable();
         _jumpInput.Disable();
-        _strafeInput.Disable();
         _sprintInput.Disable();
         _cameraInput.Disable();
         _escapeInput.Disable();
@@ -93,6 +90,7 @@ public class PlayerMovementInput : MonoBehaviour {
         cc = GetComponent<Invector.vCharacterController.vThirdPersonController>();
         Assert.IsNotNull(cc);
         cc.Init();
+        cc.Strafe();
     }
 
     protected virtual void InitializeTpCamera() {
@@ -113,7 +111,6 @@ public class PlayerMovementInput : MonoBehaviour {
         MoveInput();
         CameraInput();
         SprintInput();
-        StrafeInput();
         JumpInput();
         EscapeInput();
     }
@@ -149,16 +146,6 @@ public class PlayerMovementInput : MonoBehaviour {
 
         Vector2 input = _cameraInput.ReadValue<Vector2>();
         thirdPersonCamera.RotateCamera(input.x, input.y);
-    }
-
-    protected virtual void StrafeInput() {
-        if (!_enabled) {
-            return;
-        }
-
-        if (_strafeInput.triggered) {
-            cc.Strafe();
-        }
     }
 
     protected virtual void SprintInput() {
