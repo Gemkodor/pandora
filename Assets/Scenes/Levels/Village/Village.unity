@@ -6008,6 +6008,10 @@ PrefabInstance:
       propertyPath: _reticle
       value: 
       objectReference: {fileID: 1959369348}
+    - target: {fileID: 7533047396674847303, guid: 4438260c984c41e43889f1a207024d5f, type: 3}
+      propertyPath: _aimDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8106984388163072844, guid: 4438260c984c41e43889f1a207024d5f, type: 3}
       propertyPath: m_Name
       value: Player

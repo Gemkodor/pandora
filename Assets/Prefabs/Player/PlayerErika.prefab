@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &455918436219024882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9124857310410816666}
+  m_Layer: 0
+  m_Name: ArrowSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9124857310410816666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455918436219024882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1795161494930289203}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &464934872970995404
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,6 +711,7 @@ Transform:
   m_Children:
   - {fileID: 235725565810195696}
   - {fileID: 6582382693222867216}
+  - {fileID: 9124857310410816666}
   m_Father: {fileID: 965290179956974570}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2280,10 +2311,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.29
-  m_Height: 1.9
+  m_Radius: 0.18504524
+  m_Height: 1.811475
   m_Direction: 1
-  m_Center: {x: 0, y: 0.95, z: 0}
+  m_Center: {x: 0.009340286, y: 0.9057375, z: 0.0042362213}
 --- !u!114 &919132148604621103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2520,6 +2551,10 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Fire Input
       m_Flags: 0
+  _arrowPrefab: {fileID: 7144117110279815479, guid: ddf108cf99fd17e4e8b1e99a089c1289, type: 3}
+  _arrowSpawn: {fileID: 9124857310410816666}
+  _aimDistance: 20
+  _arrowLaunchVelocity: 2000
   _reticle: {fileID: 0}
 --- !u!114 &919132148604621106
 MonoBehaviour:
@@ -2995,7 +3030,9 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 145393650056419855, guid: ddf108cf99fd17e4e8b1e99a089c1289, type: 3}
+    - {fileID: 6189285056460461695, guid: ddf108cf99fd17e4e8b1e99a089c1289, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ddf108cf99fd17e4e8b1e99a089c1289, type: 3}
 --- !u!4 &6582382693222867216 stripped
 Transform:
